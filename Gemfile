@@ -49,7 +49,7 @@ end
 gem 'rails_12factor', group: :production
 
 gem 'devise'
-
+gem 'puma'
 
 
 #gem 'railties', '~> 4.2.0'

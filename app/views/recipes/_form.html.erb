@@ -1,0 +1,50 @@
+<%= simple_form_for(@recipe, html: {multipart: true} ) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :prep %>
+    <%= f.input :cook %>
+    <%#= f.association :user %>
+ 
+   </div>
+  <div id="equipment">
+      <%= f.simple_fields_for :equipments do |equipment_form| %>
+
+      <%= render "equipment_fields", :f => equipment_form %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "add equipment", f, :equipments %>
+      </div>
+
+  </div>
+
+  <div id="ingredients">
+      <%= f.simple_fields_for :ingredients do |ingredient_form| %>
+
+      <%= render "ingredient_fields", :f => ingredient_form %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "add ingredient", f, :ingredients %>
+      </div>
+
+  </div>
+
+<div id="instructions">
+      <%= f.simple_fields_for :instructions do |instruction_form| %>
+
+      <%= render "instruction_fields", :f => instruction_form %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association "add instructions", f, :instructions %>
+      </div>
+
+  </div>
+
+
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

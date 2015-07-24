@@ -1,50 +1,46 @@
 <%= simple_form_for(@recipe, html: {multipart: true} ) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
+<%= f.error_notification %>
+<div class="row">
+  <div class="col-sm-3 form-inputs">
     <%= f.input :name %>
     <%= f.input :description %>
     <%= f.input :prep %>
     <%= f.input :cook %>
     <%#= f.association :user %>
- 
-   </div>
+    
+  </div>
   <div id="equipment">
+    <div class="col-sm-3">
       <%= f.simple_fields_for :equipments do |equipment_form| %>
-
       <%= render "equipment_fields", :f => equipment_form %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "add equipment", f, :equipments %>
+        <%= link_to_add_association "add equipment", f, :equipments, class: "btn btn-default" %>
       </div>
-
+    </div>
   </div>
-
-  <div id="ingredients">
+  <div id=" ingredients">
+    <div class="col-sm-3">
       <%= f.simple_fields_for :ingredients do |ingredient_form| %>
-
       <%= render "ingredient_fields", :f => ingredient_form %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "add ingredient", f, :ingredients %>
+        <%= link_to_add_association "add ingredient", f, :ingredients, class: "btn btn-default" %>
       </div>
-
+    </div>
   </div>
-
-<div id="instructions">
+  <div id=" instructions">
+    <div class="col-sm-3">
       <%= f.simple_fields_for :instructions do |instruction_form| %>
-
       <%= render "instruction_fields", :f => instruction_form %>
       <% end %>
       <div class="links">
-        <%= link_to_add_association "add instructions", f, :instructions %>
+        <%= link_to_add_association "add instructions", f, :instructions, class: "btn btn-default" %>
       </div>
-
+    </div>
   </div>
-
-
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+</div>
+<div class=" form-actions">
+  <%= f.button :submit, class: "btn btn-default" %>
+</div>
 <% end %>

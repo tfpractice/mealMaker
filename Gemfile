@@ -60,7 +60,8 @@ gem 'compass-core', '~> 1.0.3'
 gem "breakpoint"
 gem 'susy', '~> 2.2.2'
 
-
+gem 'bootstrap-sass', '~> 3.3.5'
+gem 'htmlbeautifier'
 gem 'carrierwave'
 gem "rmagick"
 gem "mini_magick"
